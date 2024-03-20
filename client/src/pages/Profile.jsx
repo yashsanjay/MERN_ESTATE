@@ -93,13 +93,10 @@ export default function Profile() {
   const handleDeleteUser = async () => {
     try {
       dispatch(deleteUserStart());
-      console.log("heyyy");
       const res = await fetch(`/api/user/delete/${currentUser._id}`, {
         method: "DELETE",
       });
-      console.log("heyyysh");
       const data = await res.json();
-      console.log("heyyysh");
       if (data.success === false) {
         dispatch(deleteUserFailure(data.message));
         return;
@@ -277,7 +274,9 @@ export default function Profile() {
                   >
                     delete
                   </button>
+                  <Link to={`/update-listing/${listings._id}`} >
                   <button className="text-green-700 uppercase">edit</button>
+                  </Link>
                 </div>
               </div>
             );
