@@ -147,7 +147,7 @@ export default function Profile() {
         method: "DELETE",
       });
       const data = await res.json();
-      console.log("jaaa na");
+ 
       if (data.success === false) {
         console.log(data.message);
         return;
